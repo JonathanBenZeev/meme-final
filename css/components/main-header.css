@@ -1,0 +1,23 @@
+.main-header {
+    grid-row: 1;
+    background-color: var(--clr1);
+    position: relative;
+
+}
+
+.logo img {
+    width: 5rem;
+    height: 1rem;
+    margin: 1rem 25rem .5rem 8rem;
+    object-fit: contain;
+}
+
+.main-nav {
+    position: absolute;
+    font-size: 1rem;
+    color: var(--clr12);
+    right: 10rem;
+    transform: translate(0, -150%);
+    gap: 1.4rem;
+
+}

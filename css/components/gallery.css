@@ -1,0 +1,8 @@
+.gallery {
+    gap: 10px;
+    margin: 10px
+}
+
+.img-select {
+    cursor: pointer;
+}

@@ -1,0 +1,82 @@
+.main-content {
+    grid-row: 2;
+    background-color: var(--clr4);
+
+}
+
+.canvas-container {
+    margin-left: 15rem;
+    margin-top: 5rem;
+}
+
+.meme-editor {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 1rem;
+}
+
+.editor {
+    margin-top: 5rem;
+    gap: 0.6rem;
+    width: 24rem;
+    height: 17rem;
+}
+
+.txt-change {
+    width: 14rem;
+    height: 3rem;
+    margin: 0 0 1px;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 1.5rem;
+}
+
+.editor button {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 1.3rem;
+    margin: .2rem;
+    border-radius: 6px;
+    background-color: #fffF;
+    position: relative;
+    cursor: pointer;
+
+}
+
+.move-btns .content {
+
+    font-size: 2rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.editor img {
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    width: 1.4rem;
+
+}
+
+.color-change {
+    cursor: pointer;
+}
+
+.emoji .emoji-c {
+
+    font-size: 2rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.save {
+    font-size: 1.2rem;
+    position: absolute;
+    transform: translate(3%, -50%);
+    color: #fff;
+}
+
+.font-by {
+    height: 50px;
+    width: 234px;
+    font-size: 25px;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOYO1</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="onInit()">
+    <section class="main-layout grid">
+        <header class="main-header">
+            <div class="logo"> <img src="icons/LOGO.png" alt=""></div>
+            <ul class="main-nav flex clean-list">
+                <li><a onclick="onGallery()" class="item1" href="#">Gallery</a></li>
+                <li><a class="item2" href="#">About</a></li>
+            </ul>
+        </header>
+        <main class="main-content">
+            <section class="gallery grid grid-template-columns">
+                <!-- render gallery here! -->
+            </section>
+            <section class="meme-editor grid hide">
+                <div class="canvas-container">
+                    <canvas id="canvas" height="400" width="400">
+                    </canvas>
+                </div>
+                <div class="editor flex flex-column  align-center   ">
+                    <div class="txt-holder">
+                        <label>
+                            <input class="txt-change" type="text" placeholder="change text" maxlength="15"
+                                oninput="onSetLineTxt()" />
+                        </label>
+                    </div>
+                    <div class="move-btns">
+                        <button class="btn-up clean-btn" onclick="onMoveUp()">
+                            <div class="content">⬆</div>
+                        </button>
+                        <button class="btn-down clean-btn" onclick="onMoveDown()">
+                            <div class="content">⬇</div>
+                        </button>
+                    </div>
+                    <div class="simple-btn">
+
+                        <button class="btn-switch" onclick="onSwitchLines(1)"><img
+                                src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                        <button class="btn-add" onclick="onAddLine()"><img src="icons/add.png" alt=""></button>
+                        <button class="btn-remove" onclick="onRemoveLine()"><img src="icons/trash.png" alt=""></button>
+                    </div>
+                    <div class="fonts-btns">
+                        <button class="btn-increase" onclick="onSetTxtSize(10)"><img
+                                src="icons/increase font - icon.png" alt=""></button>
+                        <button class="btn-decrease" onclick="onSetTxtSize(-10)"><img
+                                src="icons/decrease font - icon.png" alt="" /></button>
+                        <button class="btn-right" onclick="onSetAlign('right')">
+                            <img src="icons/align-to-left.png" alt="">
+                        </button>
+                        <button class="btn-center" onclick="onSetAlign('center')">
+                            <img src="icons/center-text-alignment.png" alt="">
+                        </button>
+                        <button class="btn-left" onclick="onSetAlign('left')">
+                            <img src="icons/align-to-right.png" alt="">
+                        </button>
+                    </div>
+                    <div class="font-styles">
+                        <select class="font-by" onchange="onSetFont()">
+                            <option value="impact">impact</option>
+                            <option value="monospace">monospace</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                        </select>
+                        <input class="color-change" type="color" oninput="onSetLineColor()" />
+                    </div>
+
+                    <div class="emoji">
+                        <button onclick="onSetEmoji('🍀')">
+                            <div class="emoji-c">🍀</div>
+                        </button>
+                        <button onclick="onSetEmoji('🍳')">
+                            <div class="emoji-c">🍳</div>
+                        </button>
+                        <button onclick="onSetEmoji('🍕')">
+                            <div class="emoji-c">🍕</div>
+                        </button>
+                        <button onclick="onSetEmoji('🔨')">
+                            <div class="emoji-c">🔨</div>
+                        </button>
+                    </div>
+                    <div class="save-btns btn">
+                        <a href="#" onclick=" downloadCanvas(this)" download="myphoto">
+                            <div class="save">Download</div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer"></footer>
+    </section>
+    <script src="js/services/util.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/gallery.controller.js"></script>
+    <script src="js/services/meme.service.js"></script>
+    <script src="js/meme.controller.js"></script>
+</body>
+
+</html>

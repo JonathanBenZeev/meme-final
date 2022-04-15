@@ -1,0 +1,4 @@
+.main-layout {
+    height: 100vh;
+    grid-template-rows: 3rem 1fr 6.4375rem;
+}
