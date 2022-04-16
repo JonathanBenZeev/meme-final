@@ -15,6 +15,13 @@
     }
 }
 
+
+
+.meme-editor {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 1rem;
+}
+
 @media screen and (max-width: 770px) {
 
     .meme-editor {
@@ -41,11 +48,9 @@
     }
 }
 
-.meme-editor {
-    grid-template-columns: 1fr 1fr;
-    margin-top: 1rem;
+.hide {
+    display: none;
 }
-
 
 
 .editor {

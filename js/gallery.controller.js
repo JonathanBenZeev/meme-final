@@ -51,3 +51,5 @@ function onGallery() {
     const elMeme = document.querySelector('.meme-editor')
     elMeme.classList.add('hide')
 }
+
+

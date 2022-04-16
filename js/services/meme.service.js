@@ -1,11 +1,12 @@
 'use strict'
 
-// const STORAGE_KEY = memeDB
-var gSavedMemes
+const STORAGE_KEY = 'memeDB'
+var gSavedMemes = []
 
 var gMeme = {
     selectedImgId: 2,
     selectedLineIdx: 0,
+    isSaved: false,
     lines: [
         {
             id: makeId(),
@@ -47,6 +48,7 @@ function moveDown() {
     setMark()
     const lines = getLine()
     lines[gMeme.selectedLineIdx].pos.y += 5
+
 }
 
 function addLine() {
@@ -74,6 +76,7 @@ function addLine() {
     setTimeout(() => {
         removeMark()
     }, 5000);
+
 }
 
 function setEmoji(value) {
@@ -86,6 +89,7 @@ function setEmoji(value) {
     setTimeout(() => {
         removeMark()
     }, 5000);
+
 }
 
 function removeLine() {
@@ -95,31 +99,37 @@ function removeLine() {
     gMeme.selectedLineIdx = lines.length - 1
     if (gMeme.selectedLineIdx < 0) return
     lines[gMeme.selectedLineIdx].mark = '#ffffff10'
+
 }
 
 function setLineTxt(txt) {
     setMark()
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
+
 }
 
 function setImg(id) {
     gMeme.selectedImgId = id
+
 }
 
 function setAlign(value) {
     setMark()
     gMeme.lines[gMeme.selectedLineIdx].align = value
+
 }
 
 function setTxtSize(diff) {
     setMark()
     if (gMeme.lines[gMeme.selectedLineIdx].size + diff < 10) return
     gMeme.lines[gMeme.selectedLineIdx].size += diff
+
 }
 
 function setLineColor(color) {
     setMark()
     gMeme.lines[gMeme.selectedLineIdx].color = color
+
 }
 
 function switchLines() {
@@ -133,6 +143,7 @@ function switchLines() {
 function setFont(font) {
     setMark()
     gMeme.lines[gMeme.selectedLineIdx].font = font
+
 }
 
 function removeMark() {
@@ -142,21 +153,30 @@ function removeMark() {
         lines[i].mark = '#ffffff00'
         renderMeme()
     }
+
 }
 
 function setMark() {
     gMeme.lines[gMeme.selectedLineIdx].mark = '#ffffff10'
 }
 
+function saveMeme() {
+    let meme = JSON.parse(JSON.stringify(gMeme))
+    gSavedMemes.push(meme)
+    console.log('saved')
+    _saveMemesToStorage()
+    return gSavedMemes
+}
+
 
 function setMemeDrag(isDrag) {
     gMeme.lines[gMeme.selectedLineIdx].isDrag = isDrag
-
 }
 
 function moveMeme(dx, dy) {
     gMeme.lines[gMeme.selectedLineIdx].pos.x += dx
     gMeme.lines[gMeme.selectedLineIdx].pos.y += dy
+
 }
 
 function isMemeClicked(clickedPos) {

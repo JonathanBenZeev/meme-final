@@ -8,7 +8,6 @@ const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 function initMeme() {
     gElCanvas = document.querySelector('#canvas');
     gCtx = gElCanvas.getContext('2d');
-    // resizeCanvas()
     addListeners()
     renderMeme()
 }
@@ -47,6 +46,10 @@ function onMoveUp() {
 function onMoveDown() {
     moveDown()
     renderMeme()
+}
+
+function onSaveMeme() {
+    saveMeme()
 }
 
 function onSetEmoji(value) {
@@ -92,14 +95,6 @@ function addListeners() {
     if (lines.length === 0) return
     addMouseListeners()
     addTouchListeners()
-    // window.addEventListener('resize', () => {
-
-    //     resizeCanvas()
-    //     renderMeme()
-
-    // })
-
-
 }
 
 function addMouseListeners() {
