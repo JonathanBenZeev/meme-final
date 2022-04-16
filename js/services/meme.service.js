@@ -152,12 +152,20 @@ function setMemeDrag(isDrag) {
 }
 
 function moveMeme(dx, dy) {
-    console.log('dx', dx)
     gMeme.lines[gMeme.selectedLineIdx].pos.x += dx
     gMeme.lines[gMeme.selectedLineIdx].pos.y += dy
 }
 
 function isMemeClicked(clickedPos) {
+    const lines = getLine()
+    const lineIdx = lines.findIndex(line => Math.sqrt((line.pos.x - clickedPos.x) ** 2 + (line.pos.y - clickedPos.y) ** 2) <= line.size)
+    if (lineIdx === -1) return
+    gMeme.selectedLineIdx = lineIdx
+    gMeme.lines[gMeme.selectedLineIdx].mark = '#ffffff30'
+    setTimeout(() => {
+        removeMark()
+    }, 10000);
+
     const { pos } = gMeme.lines[gMeme.selectedLineIdx]
     const distance = Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
     return distance <= gMeme.lines[gMeme.selectedLineIdx].size

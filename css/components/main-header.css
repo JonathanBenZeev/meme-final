@@ -10,6 +10,7 @@
     height: 1rem;
     margin: 1rem 25rem .5rem 8rem;
     object-fit: contain;
+    cursor: pointer;
 }
 
 .main-nav {

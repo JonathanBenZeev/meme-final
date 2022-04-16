@@ -68,10 +68,14 @@
     transform: translate(-50%, -50%);
 }
 
+.save-btns {
+    margin-right: 150px;
+}
+
 .save {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     position: absolute;
-    transform: translate(3%, -50%);
+    transform: translate(0%, -50%);
     color: #fff;
 }
 
@@ -79,4 +83,20 @@
     height: 50px;
     width: 234px;
     font-size: 25px;
+}
+
+.saved {
+    margin: 10px 0 7px 127px;
+    cursor: pointer;
+    background-color: #ff7f00;
+    padding-right: 105px;
+    margin-bottom: 6px;
+}
+
+.save-g {
+
+    font-size: 1.6rem;
+    position: absolute;
+    transform: translate(40%, -60%);
+    color: #fff
 }

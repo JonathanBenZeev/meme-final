@@ -21,7 +21,7 @@ function renderMeme() {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         for (var i = 0; i < lines.length; i++) {
             drawText(lines[i].txt, lines[i].pos.x, lines[i].pos.y, lines[i].size, lines[i].align, lines[i].color, lines[i].font)
-            drawRect(40, lines[i].pos.y - 25, lines[i].mark)
+            drawRect(1, lines[i].pos.y - 25, lines[i].mark)
         }
     }
 }
@@ -112,7 +112,6 @@ function addMouseListeners() {
 function onDown(ev) {
     const pos = getEvPos(ev)
     if (!isMemeClicked(pos)) return
-    console.log('pos', pos)
     setMemeDrag(true)
     gStartPos = pos
     document.body.style.cursor = 'grabbing'
@@ -141,7 +140,6 @@ function getEvPos(ev) {
         x: ev.offsetX,
         y: ev.offsetY
     }
-    console.log('pos', pos)
     return pos
 }
 
