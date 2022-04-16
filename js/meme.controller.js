@@ -3,6 +3,7 @@
 var gElCanvas
 var gCtx
 var gStartPos
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 
 function initMeme() {
     gElCanvas = document.querySelector('#canvas');
@@ -91,7 +92,7 @@ function addListeners() {
     const lines = meme.lines
     if (lines.length === 0) return
     addMouseListeners()
-    // addTouchListeners()
+    addTouchListeners()
     // window.addEventListener('resize', () => {
     //     resizeCanvas()
     //     const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
@@ -107,6 +108,15 @@ function addMouseListeners() {
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mousemove', onMove)
     gElCanvas.addEventListener('mouseup', onUp)
+}
+
+function addTouchListeners() {
+    // const meme = getMeme()
+    // const lines = meme.lines
+    // if (lines.length === 0) return
+    gElCanvas.addEventListener('touchstart', onDown)
+    gElCanvas.addEventListener('touchmove', onMove)
+    gElCanvas.addEventListener('touchend', onUp)
 }
 
 function onDown(ev) {
@@ -140,15 +150,20 @@ function getEvPos(ev) {
         x: ev.offsetX,
         y: ev.offsetY
     }
+    if (gTouchEvs.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft,
+            y: ev.pageY - ev.target.offsetTop
+        }
+    }
     return pos
 }
 
 function drawRect(x, y, color) {
-    // gCtx.rect(x, y, 450, 80);
     gCtx.fillStyle = color;
     gCtx.fillRect(x, y, 450, 50);
-    // gCtx.strokeStyle = '#ffffff00';
-    // gCtx.stroke();
 }
 
 function drawText(txt, x, y, size, align, color, font) {
@@ -163,6 +178,7 @@ function drawText(txt, x, y, size, align, color, font) {
 }
 
 function downloadCanvas(elLink) {
+    console.log('gElCanvas', gElCanvas)
     const data = gElCanvas.toDataURL()
     elLink.href = data
     elLink.download = 'My-Meme.jpg'

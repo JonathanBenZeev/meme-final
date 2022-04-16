@@ -1,5 +1,8 @@
 'use strict'
 
+// const STORAGE_KEY = memeDB
+var gSavedMemes
+
 var gMeme = {
     selectedImgId: 2,
     selectedLineIdx: 0,
@@ -183,4 +186,10 @@ function _createLine(txt, size, pos) {
         align: 'center',
         color: 'white'
     }
+}
+
+
+
+function _saveMemesToStorage() {
+    saveToStorage(STORAGE_KEY, gSavedMemes)
 }
