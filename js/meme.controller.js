@@ -8,6 +8,7 @@ const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 function initMeme() {
     gElCanvas = document.querySelector('#canvas');
     gCtx = gElCanvas.getContext('2d');
+    // resizeCanvas()
     addListeners()
     renderMeme()
 }
@@ -26,8 +27,6 @@ function renderMeme() {
         }
     }
 }
-
-
 
 function onSwitchLines() {
     switchLines()
@@ -94,10 +93,12 @@ function addListeners() {
     addMouseListeners()
     addTouchListeners()
     // window.addEventListener('resize', () => {
+
     //     resizeCanvas()
-    //     const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
-    //     createCircle(center)
-    renderMeme()
+    //     renderMeme()
+
+    // })
+
 
 }
 
@@ -178,8 +179,13 @@ function drawText(txt, x, y, size, align, color, font) {
 }
 
 function downloadCanvas(elLink) {
-    console.log('gElCanvas', gElCanvas)
     const data = gElCanvas.toDataURL()
     elLink.href = data
     elLink.download = 'My-Meme.jpg'
+}
+
+function resizeCanvas() {
+    const elContainer = document.querySelector('#canvas')
+    gElCanvas.width = elContainer.offsetWidth
+    // gElCanvas.height = elContainer.offsetHeight
 }

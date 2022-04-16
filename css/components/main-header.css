@@ -22,3 +22,27 @@
     gap: 1.4rem;
 
 }
+
+
+@media screen and (max-width: 570px) {
+
+    .main-nav {
+        right: 1rem;
+    }
+
+    .logo img {
+        margin-left: 0;
+    }
+
+}
+
+
+
+
+@media screen and (max-width: 570px) {
+
+    .main-nav {
+        right: 6rem;
+    }
+
+}
